@@ -27,12 +27,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/customer",
+					"raw": "http://localhost:9004/user/customer",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"user",
 						"customer"
@@ -63,12 +63,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/pet/1",
+					"raw": "http://localhost:9004/pet/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"pet",
 						"1"
@@ -99,12 +99,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/employee",
+					"raw": "http://localhost:9004/user/employee",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"user",
 						"employee"
@@ -135,12 +135,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/employee/1",
+					"raw": "http://localhost:9004/user/employee/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"user",
 						"employee",
@@ -175,12 +175,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/employee/availability",
+					"raw": "http://localhost:9004/user/employee/availability",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"user",
 						"employee",
@@ -212,12 +212,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/employee/1",
+					"raw": "http://localhost:9004/user/employee/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"user",
 						"employee",
@@ -252,12 +252,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/schedule/pet/1",
+					"raw": "http://localhost:9004/schedule/pet/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"schedule",
 						"pet",
@@ -292,12 +292,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/schedule/employee/2",
+					"raw": "http://localhost:9004/schedule/employee/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"schedule",
 						"employee",
@@ -332,12 +332,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/schedule/employee/2",
+					"raw": "http://localhost:9004/schedule/employee/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"schedule",
 						"employee",
@@ -372,12 +372,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/customer",
+					"raw": "http://localhost:9004/user/customer",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"user",
 						"customer"
@@ -411,12 +411,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/customer",
+					"raw": "http://localhost:9004/user/customer",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"user",
 						"customer"
@@ -450,12 +450,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/pet/owner/1",
+					"raw": "http://localhost:9004/pet/owner/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"pet",
 						"owner",
@@ -490,12 +490,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/user/customer/pet/1",
+					"raw": "http://localhost:9004/user/customer/pet/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8082",
+					"port": "9004",
 					"path": [
 						"user",
 						"customer",
