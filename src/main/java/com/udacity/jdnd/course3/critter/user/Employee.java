@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-public class Employee extends User {
+public class Employee extends Users {
 	@Column
     @ElementCollection(targetClass=EmployeeSkill.class)
     private Set<EmployeeSkill> employeeSkills;
@@ -20,10 +20,10 @@ public class Employee extends User {
     
     @ManyToMany(mappedBy = "employees")
     private List<Schedule> schedules;
-	
+    
+    
 
-	
-    public Set<EmployeeSkill> getEmployeeSkills() {
+	public Set<EmployeeSkill> getEmployeeSkills() {
 		return employeeSkills;
 	}
 
@@ -46,9 +46,8 @@ public class Employee extends User {
 	public void setSchedules(List<Schedule> schedules) {
 		this.schedules = schedules;
 	}
-
-
 	
-	
+
+		
 
 }

@@ -6,7 +6,7 @@ import org.hibernate.annotations.Nationalized;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class User {
+public class Users {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -18,15 +18,6 @@ public class User {
 	
 	
 	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
 
 	public Long getId() {
 		return id;
@@ -36,6 +27,14 @@ public class User {
 		this.id = id;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -43,5 +42,7 @@ public class User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	
+	
 
 }

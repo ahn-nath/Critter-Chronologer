@@ -8,19 +8,23 @@ import org.hibernate.annotations.Nationalized;
 
 import com.udacity.jdnd.course3.critter.pet.Pet;
 
+import java.util.ArrayList;
+
 @Entity
-public class Customer extends User {
+public class Customer extends Users {
 
 	@Nationalized
 	private String notes;
 
 	@OneToMany(mappedBy = "customer") // a customer can have many pets
-	private List<Pet> pets;
-
-
+	private List<Pet> pets =  new ArrayList<Pet>();
 
 	public String getNotes() {
 		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 
 	public List<Pet> getPets() {
@@ -31,8 +35,8 @@ public class Customer extends User {
 		this.pets = pets;
 	}
 
-	public void setNotes(String notes) {
-		this.notes = notes;
+	public void addPet(Pet pet) {
+		pets.add(pet);
 	}
 
 }
