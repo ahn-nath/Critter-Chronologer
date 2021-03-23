@@ -12,6 +12,9 @@ import java.util.stream.Collectors;
 
 /**
  * Handles web requests related to Pets.
+ * 
+ * Includes requests for both Customer and Pet Entities. 
+ *  
  */
 @RestController
 @RequestMapping("/pet")
@@ -44,13 +47,12 @@ public class PetController {
 
 	
 	/***
-	 * If a GET request with a petId as parameter is received, get Pet, 
-	 * convert it to a PetDTO and return it 
+	 * If a GET request with a petId as parameter is received, get Pet, convert it
+	 * to a PetDTO and return it
 	 ***/
 	@GetMapping("/{petId}")
 	public PetDTO getPet(@PathVariable long petId) {
 		return convertPetToDTO(petService.getPet(petId));
-		//throw new UnsupportedOperationException();
 	}
 
 	
@@ -68,10 +70,12 @@ public class PetController {
 		
 		
 		return petDTOs;
-		//throw new UnsupportedOperationException();
 	}
 
-	//**pending
+	/***
+	 * If a GET request is received with the owner id, get all Pets associated to that owner, 
+	 * convert them to PetDTO and return list 
+	 ***/
 	@GetMapping("/owner/{ownerId}")
 	public List<PetDTO> getPetsByOwner(@PathVariable long ownerId) {
 		List<Pet> pets = petService.getPetsByOwner(ownerId);
@@ -81,8 +85,6 @@ public class PetController {
 		
 		
 		return petDTOs;
-		
-		//throw new UnsupportedOperationException();
 	}
 
 	
@@ -91,7 +93,7 @@ public class PetController {
 		PetDTO petDTO = new PetDTO();
 		BeanUtils.copyProperties(pet, petDTO);
 		
-		// the petDTO doesn't needs the customer id from the Customer entity in Pet
+		// the Pet doesn't automatically sets the customer id from the Customer entity
 		petDTO.setOwnerId(pet.getCustomer().getId());
 		
 		return petDTO;

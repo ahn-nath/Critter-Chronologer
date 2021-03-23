@@ -9,6 +9,9 @@ import java.util.stream.Collectors;
 
 /**
  * Handles web requests related to Schedules.
+ * 
+ * Includes requests for Schedule Entities. 
+ * 
  */
 @RestController
 @RequestMapping("/schedule")
@@ -18,15 +21,20 @@ public class ScheduleController {
 	private ScheduleService scheduleService;
 	
 
+	/***
+	 * If a POST request is received, convert ScheduleDTO to a Schedule Entity 
+	 * to save in the database, return the 'row' added as a DTO 
+	 ***/
     @PostMapping
     public ScheduleDTO createSchedule(@RequestBody ScheduleDTO scheduleDTO) {
     	Schedule  schedule = convertDTOToSchedule(scheduleDTO);
 		return convertScheduleToDTO(scheduleService.saveSchedule(schedule));
-		
-		//throw new UnsupportedOperationException();
     }
 
 
+	/***
+	 * If a GET request is received, get all Schedules as a List 
+	 ***/
 	@GetMapping
     public List<ScheduleDTO> getAllSchedules() {
 		List<Schedule> schedules = scheduleService.getSchedules();
@@ -35,20 +43,28 @@ public class ScheduleController {
 				.collect(Collectors.toList());
 		
 		return scheduleDTOs;
-		
-		//throw new UnsupportedOperationException();
+
     }
 
+	/***
+	 * If a GET request with a Pet id is received, get Schedule for single Pet 
+	 ***/
     @GetMapping("/pet/{petId}")
     public List<ScheduleDTO> getScheduleForPet(@PathVariable long petId) {
         throw new UnsupportedOperationException();
     }
-
+    
+	/***
+	 * If a GET request with a Employee id is received, get Schedule for single Employee
+	 ***/
     @GetMapping("/employee/{employeeId}")
     public List<ScheduleDTO> getScheduleForEmployee(@PathVariable long employeeId) {
         throw new UnsupportedOperationException();
     }
 
+    /***
+	 * If a GET request with a Customer id is received, get Schedule for single Customer
+	 ***/
     @GetMapping("/customer/{customerId}")
     public List<ScheduleDTO> getScheduleForCustomer(@PathVariable long customerId) {
         throw new UnsupportedOperationException();

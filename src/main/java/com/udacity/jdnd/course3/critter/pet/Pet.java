@@ -77,5 +77,13 @@ public class Pet {
 		this.birthDate = birthDate;
 
 	}
+	
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
 
 }

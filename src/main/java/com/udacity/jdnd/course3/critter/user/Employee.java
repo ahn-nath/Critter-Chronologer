@@ -12,7 +12,7 @@ import java.util.Set;
 public class Employee extends Users {
 	@Column
     @ElementCollection(targetClass=EmployeeSkill.class)
-    private Set<EmployeeSkill> employeeSkills;
+    private Set<EmployeeSkill> skills;
 	
 	@Column
     @ElementCollection(targetClass=DayOfWeek.class)
@@ -23,12 +23,12 @@ public class Employee extends Users {
     
     
 
-	public Set<EmployeeSkill> getEmployeeSkills() {
-		return employeeSkills;
+	public Set<EmployeeSkill> getSkills() {
+		return skills;
 	}
 
-	public void setEmployeeSkills(Set<EmployeeSkill> employeeSkills) {
-		this.employeeSkills = employeeSkills;
+	public void setSkills(Set<EmployeeSkill> employeeSkills) {
+		this.skills = employeeSkills;
 	}
 
 	public Set<DayOfWeek> getWorkDays() {
