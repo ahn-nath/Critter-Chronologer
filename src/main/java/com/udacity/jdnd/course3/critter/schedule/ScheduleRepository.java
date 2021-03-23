@@ -6,19 +6,18 @@ import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.udacity.jdnd.course3.critter.pet.Pet;
+import com.udacity.jdnd.course3.critter.user.Employee;
+
 
 @Repository
 @Transactional
 public interface ScheduleRepository extends JpaRepository<Schedule, Long>{
 	
 	// returns all schedules by pet
-	List<Schedule> findByPets(Long id); // check how this query works
+	List<Schedule> findByPets(Pet pet);
 	
-	// returns all schedule by employee
-	List<Schedule> findByEmployees(Long id); // check how this query works
-	
-	/*
-	// returns all schedules by customer
-	List<Schedule> findByCustomer(Long id);
-	 */
+	// returns all schedules by employee
+	List<Schedule> findByEmployees(Employee employee);	
+
 }

@@ -10,7 +10,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.udacity.jdnd.course3.critter.pet.Pet;
 import com.udacity.jdnd.course3.critter.pet.PetRepository;
 
 @Service
@@ -31,9 +30,7 @@ public class UserService {
 	}
 
 	public Customer getCustomerByPet(long id) {
-		Pet pet = petRepository.getOne(id);
-
-		return customerRepository.findByPets(pet);
+		return customerRepository.findByPets(petRepository.getOne(id));
 	}
 
 	public Customer getCustomer(long ownerId) {
@@ -54,7 +51,6 @@ public class UserService {
 
 	public Employee setEmployeeAvailability(Set<DayOfWeek> days, long id) {
 		Employee employeeToUpdate = employeeRepository.getOne(id);
-
 		employeeToUpdate.setWorkDays(days);
 
 		return employeeRepository.save(employeeToUpdate);
