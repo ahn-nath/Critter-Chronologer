@@ -4,6 +4,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -60,7 +61,18 @@ public class UserService {
 		Set<EmployeeSkill> skills = employeeRequest.getSkills();
 		LocalDate date = employeeRequest.getDate();
 
-		return employeeRepository.findAllByWorkDaysAndSkillsIn(date.getDayOfWeek(), skills);
+		// filter to only get the employees that have ALL the required skills and not just one
+		List<Employee> matchedEmployees = employeeRepository.findAllByWorkDaysAndSkillsIn(date.getDayOfWeek(), skills)
+				.stream()
+				.map(employee -> employee)
+				.filter(employee -> employee.getSkills().containsAll(skills))
+				.collect(Collectors.toList());
+		
+		return  matchedEmployees;
+	}
+
+	public List<Employee> getEmployeesByIds(List<Long> employeeIds) {
+		return employeeRepository.findAllById(employeeIds);
 	}
 
 }

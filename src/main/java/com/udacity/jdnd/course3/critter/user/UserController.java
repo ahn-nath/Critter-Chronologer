@@ -87,10 +87,9 @@ public class UserController {
 
 		if (pets != null) {
 			List<Long> petIds = pets.stream().map(pet -> pet.getId()).collect(Collectors.toList());
-			;
 
 			customerDTO.setPetIds(petIds);
-			;
+
 		}
 
 		return customerDTO;

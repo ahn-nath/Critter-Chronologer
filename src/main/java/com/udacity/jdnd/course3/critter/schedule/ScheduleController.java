@@ -4,6 +4,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.udacity.jdnd.course3.critter.pet.Pet;
+import com.udacity.jdnd.course3.critter.pet.PetService;
+import com.udacity.jdnd.course3.critter.user.Employee;
+import com.udacity.jdnd.course3.critter.user.UserService;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,6 +21,12 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/schedule")
 public class ScheduleController {
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private PetService petService;
 
 	@Autowired
 	private ScheduleService scheduleService;
@@ -86,12 +97,48 @@ public class ScheduleController {
 		Schedule schedule = new Schedule();
 		BeanUtils.copyProperties(scheduleDTO, schedule);
 
+		// set Pets
+		List<Long> petIds = scheduleDTO.getPetIds();
+
+		if (petIds != null) {
+			List<Pet> pets = petService.getPetsByIds(petIds);
+			schedule.setPets(pets);
+		}
+
+		// set Employees
+		List<Long> employeeIds = scheduleDTO.getEmployeeIds();
+
+		if (petIds != null) {
+			List<Employee> employees = userService.getEmployeesByIds(employeeIds);
+			schedule.setEmployees(employees);
+		}
+
 		return schedule;
 	}
 
 	private ScheduleDTO convertScheduleToDTO(Schedule schedule) {
 		ScheduleDTO scheduleDTO = new ScheduleDTO();
 		BeanUtils.copyProperties(schedule, scheduleDTO);
+
+		// set petIds
+		List<Pet> pets = schedule.getPets();
+
+		if (pets != null) {
+			List<Long> petIds = pets.stream().map(pet -> pet.getId()).collect(Collectors.toList());
+
+			scheduleDTO.setPetIds(petIds);
+
+		}
+		
+		// set employeeIds
+		List<Employee> employees = schedule.getEmployees();
+		
+		if (pets != null) {
+			List<Long> employeeIds = employees.stream().map(employee -> employee.getId()).collect(Collectors.toList());
+
+			scheduleDTO.setEmployeeIds(employeeIds);
+
+		}
 
 		return scheduleDTO;
 
