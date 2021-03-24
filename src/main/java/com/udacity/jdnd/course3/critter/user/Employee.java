@@ -11,17 +11,15 @@ import java.util.Set;
 @Entity
 public class Employee extends Users {
 	@Column
-    @ElementCollection(targetClass=EmployeeSkill.class)
-    private Set<EmployeeSkill> skills;
-	
+	@ElementCollection(targetClass = EmployeeSkill.class)
+	private Set<EmployeeSkill> skills;
+
 	@Column
-    @ElementCollection(targetClass=DayOfWeek.class)
-    private Set<DayOfWeek> workDays;
-    
-    @ManyToMany(mappedBy = "employees")
-    private List<Schedule> schedules;
-    
-    
+	@ElementCollection(targetClass = DayOfWeek.class)
+	private Set<DayOfWeek> workDays;
+
+	@ManyToMany(mappedBy = "employees")
+	private List<Schedule> schedules;
 
 	public Set<EmployeeSkill> getSkills() {
 		return skills;
@@ -46,8 +44,5 @@ public class Employee extends Users {
 	public void setSchedules(List<Schedule> schedules) {
 		this.schedules = schedules;
 	}
-	
-
-		
 
 }

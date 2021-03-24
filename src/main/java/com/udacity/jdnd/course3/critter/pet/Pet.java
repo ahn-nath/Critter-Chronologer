@@ -28,7 +28,7 @@ public class Pet {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
-	
+
 	@ManyToMany(mappedBy = "pets")
 	private List<Schedule> schedules;
 
@@ -77,7 +77,7 @@ public class Pet {
 		this.birthDate = birthDate;
 
 	}
-	
+
 	public String getNotes() {
 		return notes;
 	}

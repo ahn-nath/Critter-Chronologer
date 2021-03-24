@@ -16,7 +16,7 @@ public class ScheduleService {
 
 	@Autowired
 	ScheduleRepository scheduleRepository;
-	
+
 	@Autowired
 	CustomerRepository customerRepository;
 
@@ -34,24 +34,22 @@ public class ScheduleService {
 		return scheduleRepository.findAll();
 	}
 
-	
 	/**
-	 * Get Pet schedules for each pet of the customer
-	 * add them to customerSchedules list
-	 * */
+	 * Get Pet schedules for each pet of the customer add them to customerSchedules
+	 * list
+	 */
 	public List<Schedule> getSchedulesForCustomer(long id) {
-		
+
 		List<Schedule> schedulesCustomer = new ArrayList<Schedule>();
-		
+
 		List<Pet> customerPets = customerRepository.getOne(id).getPets();
-		
-		for(Pet pet:customerPets) {
+
+		for (Pet pet : customerPets) {
 			schedulesCustomer.addAll(scheduleRepository.findByPets(pet));
 		}
-		
+
 		return schedulesCustomer;
 	}
-	
 
 	public List<Schedule> getSchedulesForEmployee(long id) {
 		return scheduleRepository.findByEmployees(employeeRepository.getOne(id));

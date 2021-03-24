@@ -17,7 +17,7 @@ public class Customer extends Users {
 	private String notes;
 
 	@OneToMany(mappedBy = "customer") // a customer can have many pets
-	private List<Pet> pets =  new ArrayList<Pet>();
+	private List<Pet> pets = new ArrayList<Pet>();
 
 	public String getNotes() {
 		return notes;

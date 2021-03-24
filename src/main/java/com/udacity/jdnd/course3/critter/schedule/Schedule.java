@@ -19,11 +19,10 @@ public class Schedule {
 	private long id;
 
 	@ManyToMany
-	@JoinTable(
-            name = "schedule_employee",
-            joinColumns = @JoinColumn(name = "schedule_id"),
-            inverseJoinColumns = @JoinColumn(name = "employee_id")) // check this later
-	
+	@JoinTable(name = "schedule_employee", 
+	joinColumns = @JoinColumn(name = "schedule_id"), 
+	inverseJoinColumns = @JoinColumn(name = "employee_id"))																																																										// later
+
 	private List<Employee> employees;
 
 	@ManyToMany

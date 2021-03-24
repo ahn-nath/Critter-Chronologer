@@ -1,4 +1,4 @@
-                     package com.udacity.jdnd.course3.critter.user;
+package com.udacity.jdnd.course3.critter.user;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,7 @@ public class UserController {
 	@GetMapping("/customer")
 	public List<CustomerDTO> getAllCustomers() {
 		List<Customer> customers = userService.getCustomers();
-		
+
 		List<CustomerDTO> customerDTOs = customers.stream().map(customer -> convertCustomerToDTO(customer))
 				.collect(Collectors.toList());
 
@@ -68,7 +68,7 @@ public class UserController {
 	@GetMapping("/employee/availability")
 	public List<EmployeeDTO> findEmployeesForService(@RequestBody EmployeeRequestDTO employeeDTO) {
 		List<Employee> availableEmployees = userService.findEmployeesForService(employeeDTO);
-		
+
 		List<EmployeeDTO> employeeDTOs = availableEmployees.stream().map(employee -> convertEmployeeToDTO(employee))
 				.collect(Collectors.toList());
 
@@ -115,18 +115,18 @@ public class UserController {
 	private EmployeeDTO convertEmployeeToDTO(Employee employee) {
 		EmployeeDTO employeeDTO = new EmployeeDTO();
 		BeanUtils.copyProperties(employee, employeeDTO);
-		
+
 		employeeDTO.setDaysAvailable(employee.getWorkDays());
-		
+
 		return employeeDTO;
 	}
 
 	public Employee convertDTOToEmployee(EmployeeDTO employeeDTO) {
 		Employee employee = new Employee();
 		BeanUtils.copyProperties(employeeDTO, employee);
-		
+
 		employee.setWorkDays(employeeDTO.getDaysAvailable());
-		
+
 		return employee;
 	}
 }

@@ -15,9 +15,6 @@ public class Users {
 	private String name;
 
 	private String phoneNumber;
-	
-	
-	
 
 	public Long getId() {
 		return id;
@@ -42,7 +39,5 @@ public class Users {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
-	
 
 }
