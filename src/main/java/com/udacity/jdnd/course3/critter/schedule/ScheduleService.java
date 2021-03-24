@@ -1,10 +1,12 @@
 package com.udacity.jdnd.course3.critter.schedule;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.udacity.jdnd.course3.critter.pet.Pet;
 import com.udacity.jdnd.course3.critter.pet.PetRepository;
 import com.udacity.jdnd.course3.critter.user.CustomerRepository;
 import com.udacity.jdnd.course3.critter.user.EmployeeRepository;
@@ -33,15 +35,21 @@ public class ScheduleService {
 	}
 
 	
+	/**
+	 * Get Pet schedules for each pet of the customer
+	 * add them to customerSchedules list
+	 * */
 	public List<Schedule> getSchedulesForCustomer(long id) {
-		//return scheduleRepository.findByCustomers(id);
-		/**
-		 * Get Pet schedules for each pet of the customer
-		 * add them to customerSchedules list
-		 * */
 		
+		List<Schedule> schedulesCustomer = new ArrayList<Schedule>();
 		
-		return null;
+		List<Pet> customerPets = customerRepository.getOne(id).getPets();
+		
+		for(Pet pet:customerPets) {
+			schedulesCustomer.addAll(scheduleRepository.findByPets(pet));
+		}
+		
+		return schedulesCustomer;
 	}
 	
 
