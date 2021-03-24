@@ -3,6 +3,8 @@ package com.udacity.jdnd.course3.critter.schedule;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import com.udacity.jdnd.course3.critter.user.CustomerRepository;
 import com.udacity.jdnd.course3.critter.user.EmployeeRepository;
 
 @Service
+@Transactional
 public class ScheduleService {
 
 	@Autowired
