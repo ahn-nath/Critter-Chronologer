@@ -49,6 +49,13 @@ public class ScheduleController {
 		List<Schedule> schedules = scheduleService.getSchedules();
 		List<ScheduleDTO> scheduleDTOs = schedules.stream().map(schedule -> convertScheduleToDTO(schedule))
 				.collect(Collectors.toList());
+		
+		
+		// debug
+        System.out.println("SCHEDULE:");
+        for(ScheduleDTO sc: scheduleDTOs) {
+        	System.out.println(sc.getPetIds());
+        }
 
 		return scheduleDTOs;
 

@@ -27,13 +27,24 @@ public class UserController {
 
 	@Autowired
 	private PetService petService;
-
+	
+	
+	
+	/***
+	 * If a POST request is received for 'customer', convert customerDTO to a Customer Entity to save in the
+	 * database, return the 'row' added as a DTO
+	 ***/
 	@PostMapping("/customer")
 	public CustomerDTO saveCustomer(@RequestBody CustomerDTO customerDTO) {
 		Customer customer = convertDTOToCustomer(customerDTO);
 		return convertCustomerToDTO(userService.saveCustomer(customer));
 	}
 
+	
+	/***
+	 * If a GET request is received, get all Customers, convert them to PetDTO and return
+	 * list
+	 ***/
 	@GetMapping("/customer")
 	public List<CustomerDTO> getAllCustomers() {
 		List<Customer> customers = userService.getCustomers();
@@ -44,27 +55,49 @@ public class UserController {
 		return customerDTOs;
 	}
 
+	/***
+	 * If a GET request with a petId as parameter is received, get associated Customer by Pet, convert it
+	 * to a CustomerDTO and return it
+	 ***/
 	@GetMapping("/customer/pet/{petId}")
 	public CustomerDTO getOwnerByPet(@PathVariable long petId) {
 		return convertCustomerToDTO(userService.getCustomerByPet(petId));
 	}
 
+	
+	/***
+	 * If a POST request is received for 'employee', convert employeeDTO to a Employee Entity to save in the
+	 * database, return the 'row' added as a DTO
+	 ***/
 	@PostMapping("/employee")
 	public EmployeeDTO saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
 		Employee employee = convertDTOToEmployee(employeeDTO);
 		return convertEmployeeToDTO(userService.saveEmployee(employee));
 	}
 
+	/***
+	 * If a GET request is received with a employeeID as parameter, get employee, convert employee to a DTO,
+	 * and return it
+	 ***/
 	@PostMapping("/employee/{employeeId}")
 	public EmployeeDTO getEmployee(@PathVariable long employeeId) {
 		return convertEmployeeToDTO(userService.getEmployee(employeeId));
 	}
 
+	
+	/***
+	 * If a PUT request is received with a employeeID as parameter, set days available, and
+	 * and return it Entity
+	 ***/
 	@PutMapping("/employee/{employeeId}")
 	public EmployeeDTO setAvailability(@RequestBody Set<DayOfWeek> daysAvailable, @PathVariable long employeeId) {
 		return convertEmployeeToDTO(userService.setEmployeeAvailability(daysAvailable, employeeId));
 	}
 
+	/***
+	 * If a GET request is received for 'availability', get employees with required skills
+	 * that are available for that date and return them as a list
+	 ***/
 	@GetMapping("/employee/availability")
 	public List<EmployeeDTO> findEmployeesForService(@RequestBody EmployeeRequestDTO employeeDTO) {
 		List<Employee> availableEmployees = userService.findEmployeesForService(employeeDTO);

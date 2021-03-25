@@ -30,12 +30,10 @@ public class PetController {
 	 * If a POST request is received, convert PetDTO to a Pet Entity to save in the
 	 * database, return the 'row' added as a DTO
 	 ***/
-
 	@PostMapping
 	public PetDTO savePet(@RequestBody PetDTO petDTO) {
 
 		Customer customer = userService.getCustomer(petDTO.getOwnerId());
-		System.out.println("owener" + petDTO.getOwnerId());
 
 		Pet pet = convertDTOToPet(petDTO);
 		pet.setCustomer(customer);
