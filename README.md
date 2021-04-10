@@ -61,8 +61,4 @@ In addition to the included unit tests, a Postman collection has been provided.
 Each entry in this collection contains information in its `Body` tab if necessary and all requests should function for a completed project. Depending on your key generation strategy, you may need to edit the specific ids in these requests for your particular project.
 
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md]()
-
  
