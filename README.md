@@ -13,7 +13,7 @@ Critter Chronologer a Software as a Service application that provides a scheduli
 * [H2 Database Engine](https://www.h2database.com/html/main.html) - sn in-memory database used in this project to run unit tests.
 
 
-### Installation
+## Installation
 Part of this project involves configuring a Spring application to connect to an external data source. Before beginning this project, you must install a database to connect to. Here are [instructions for installing PostgreSQL 8](https://www.postgresql.org/docs/9.3/tutorial-install.html). 
 
 You should install the Server and Connector/J, but it is also convenient to install the Documentation and Workbench.
