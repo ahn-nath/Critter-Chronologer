@@ -5,9 +5,9 @@ Critter Chronologer a Software as a Service application that provides a scheduli
 ## Tech
 
 * [Java SE Development Kit 8+](https://www.oracle.com/technetwork/java/javase/downloads/index.html) - computing platform for development and deployment of portable code for desktop and server environments.
-* [Maven](https://maven.apache.org/download.cgi) - software project management and comprehension tool
-* [PostgreSQL](https://www.postgresql.org/) - open source object-relational database system
-* [Postman](https://www.getpostman.com/downloads/)  - collaboration platform for API development
+* [Maven](https://maven.apache.org/download.cgi) - software project management and comprehension tool.
+* [PostgreSQL](https://www.postgresql.org/) - open source object-relational database system.
+* [Postman](https://www.getpostman.com/downloads/)  - collaboration platform for API development.
 * [Spring Boot](https://spring.io/projects/spring-boot) - framework providing dependency injection, web framework, data binding, resource management, transaction management, and more.
 * [Google Guava](https://github.com/google/guava) - set of core libraries used in this project for their collections utilities.
 * [H2 Database Engine](https://www.h2database.com/html/main.html) - sn in-memory database used in this project to run unit tests.
